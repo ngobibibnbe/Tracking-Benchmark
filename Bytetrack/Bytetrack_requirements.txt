@@ -1,0 +1,30 @@
+# TODO: Update with exact module version
+numpy==1.20
+torch>=1.7
+opencv_python
+loguru
+scikit-image
+tqdm
+torchvision>=0.10.0
+Pillow
+thop
+ninja
+tabulate
+tensorboard
+motmetrics
+filterpy
+h5py
+opencv-python
+openpyxl
+
+# verified versions
+onnx
+onnxruntime
+onnx-simplifier
+tabulate 
+thop
+lap
+pycocotools
+cython-bbox
+yolox==0.2.0
+#il y'a souvent une erreur avec lap du à l'installation de numpy. il sur python 3.7 faut faire pip install numpy==1.20 --no-cache-dir puis lap avec no-cache-dir aussi puis relancer l'installation des requirements

@@ -1,0 +1,1458 @@
+2024-08-07 12:48:50.542 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(batch_size=48, ckpt='pretrained/yolox_x.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/mot/yolox_x_mix_det.py', experiment_name='yolox_x_mix_det', fp16=True, local_rank=0, machine_rank=0, name=None, num_machines=1, occupy=True, opts=[], resume=False, start_epoch=None)
+2024-08-07 12:48:50.543 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤═══════════════════╕
+│ keys             │ values            │
+╞══════════════════╪═══════════════════╡
+│ seed             │ None              │
+├──────────────────┼───────────────────┤
+│ output_dir       │ './YOLOX_outputs' │
+├──────────────────┼───────────────────┤
+│ print_interval   │ 20                │
+├──────────────────┼───────────────────┤
+│ eval_interval    │ 5                 │
+├──────────────────┼───────────────────┤
+│ num_classes      │ 1                 │
+├──────────────────┼───────────────────┤
+│ depth            │ 1.33              │
+├──────────────────┼───────────────────┤
+│ width            │ 1.25              │
+├──────────────────┼───────────────────┤
+│ data_num_workers │ 4                 │
+├──────────────────┼───────────────────┤
+│ input_size       │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ random_size      │ (18, 32)          │
+├──────────────────┼───────────────────┤
+│ train_ann        │ 'train.json'      │
+├──────────────────┼───────────────────┤
+│ val_ann          │ 'test.json'       │
+├──────────────────┼───────────────────┤
+│ degrees          │ 10.0              │
+├──────────────────┼───────────────────┤
+│ translate        │ 0.1               │
+├──────────────────┼───────────────────┤
+│ scale            │ (0.1, 2)          │
+├──────────────────┼───────────────────┤
+│ mscale           │ (0.8, 1.6)        │
+├──────────────────┼───────────────────┤
+│ shear            │ 2.0               │
+├──────────────────┼───────────────────┤
+│ perspective      │ 0.0               │
+├──────────────────┼───────────────────┤
+│ enable_mixup     │ True              │
+├──────────────────┼───────────────────┤
+│ warmup_epochs    │ 1                 │
+├──────────────────┼───────────────────┤
+│ max_epoch        │ 80                │
+├──────────────────┼───────────────────┤
+│ warmup_lr        │ 0                 │
+├──────────────────┼───────────────────┤
+│ basic_lr_per_img │ 1.5625e-05        │
+├──────────────────┼───────────────────┤
+│ scheduler        │ 'yoloxwarmcos'    │
+├──────────────────┼───────────────────┤
+│ no_aug_epochs    │ 10                │
+├──────────────────┼───────────────────┤
+│ min_lr_ratio     │ 0.05              │
+├──────────────────┼───────────────────┤
+│ ema              │ True              │
+├──────────────────┼───────────────────┤
+│ weight_decay     │ 0.0005            │
+├──────────────────┼───────────────────┤
+│ momentum         │ 0.9               │
+├──────────────────┼───────────────────┤
+│ exp_name         │ 'yolox_x_mix_det' │
+├──────────────────┼───────────────────┤
+│ test_size        │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ test_conf        │ 0.001             │
+├──────────────────┼───────────────────┤
+│ nmsthre          │ 0.7               │
+╘══════════════════╧═══════════════════╛
+2024-08-07 12:48:51.212 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2024-08-07 12:48:51.851 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2024-08-07 12:48:52.227 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.0.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.0.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-07 12:48:52.227 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.0.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.0.bias in model is torch.Size([1]).
+2024-08-07 12:48:52.227 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.1.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.1.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-07 12:48:52.228 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.1.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.1.bias in model is torch.Size([1]).
+2024-08-07 12:48:52.228 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.2.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.2.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-07 12:48:52.228 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.2.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.2.bias in model is torch.Size([1]).
+2024-08-07 12:48:52.243 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2024-08-07 12:48:52.243 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (3023142), thread 'MainThread' (140092123096128):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7f687329b310>
+
+> File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f687329b670>
+
+  File "tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f6872fe4790>
+    └ <yolox.core.trainer.Trainer object at 0x7f687173ccd0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 70, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7f687170b3a0>
+    └ <yolox.core.trainer.Trainer object at 0x7f687173ccd0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 145, in before_train
+    self.train_loader = self.exp.get_data_loader(
+    │                   │    │   └ <function Exp.get_data_loader at 0x7f68717399d0>
+    │                   │    └ ╒══════════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │                   └ <yolox.core.trainer.Trainer object at 0x7f687173ccd0>
+    └ <yolox.core.trainer.Trainer object at 0x7f687173ccd0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/exps/example/mot/yolox_x_mix_det.py", line 42, in get_data_loader
+    dataset = MOTDataset(
+              └ <class 'yolox.data.datasets.mot.MOTDataset'>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mot.py", line 39, in __init__
+    self.coco = COCO(os.path.join(self.data_dir, "annotations", self.json_file))
+    │           │    │  │    │    │    │                        │    └ 'train.json'
+    │           │    │  │    │    │    │                        └ <yolox.data.datasets.mot.MOTDataset object at 0x7f679f9d2fd0>
+    │           │    │  │    │    │    └ '/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/datasets/mix_det'
+    │           │    │  │    │    └ <yolox.data.datasets.mot.MOTDataset object at 0x7f679f9d2fd0>
+    │           │    │  │    └ <function join at 0x7f69bcd4ca60>
+    │           │    │  └ <module 'posixpath' from '/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/posixpath.py'>
+    │           │    └ <module 'os' from '/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/os.py'>
+    │           └ <class 'pycocotools.coco.COCO'>
+    └ <yolox.data.datasets.mot.MOTDataset object at 0x7f679f9d2fd0>
+
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/pycocotools/coco.py", line 84, in __init__
+    dataset = json.load(open(annotation_file, 'r'))
+              │    │         └ '/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/datasets/mix_det/annotations/train.json'
+              │    └ <function load at 0x7f69bc1005e0>
+              └ <module 'json' from '/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/json/__init__.py'>
+
+FileNotFoundError: [Errno 2] No such file or directory: '/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/datasets/mix_det/annotations/train.json'
+2024-08-08 19:49:50.345 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(batch_size=16, ckpt='pretrained/yolox_x.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/mot/yolox_x_mix_det.py', experiment_name='yolox_x_mix_det', fp16=True, local_rank=0, machine_rank=0, name=None, num_machines=1, occupy=True, opts=[], resume=False, start_epoch=None)
+2024-08-08 19:49:50.347 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤═══════════════════╕
+│ keys             │ values            │
+╞══════════════════╪═══════════════════╡
+│ seed             │ None              │
+├──────────────────┼───────────────────┤
+│ output_dir       │ './YOLOX_outputs' │
+├──────────────────┼───────────────────┤
+│ print_interval   │ 20                │
+├──────────────────┼───────────────────┤
+│ eval_interval    │ 5                 │
+├──────────────────┼───────────────────┤
+│ num_classes      │ 1                 │
+├──────────────────┼───────────────────┤
+│ depth            │ 1.33              │
+├──────────────────┼───────────────────┤
+│ width            │ 1.25              │
+├──────────────────┼───────────────────┤
+│ data_num_workers │ 4                 │
+├──────────────────┼───────────────────┤
+│ input_size       │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ random_size      │ (18, 32)          │
+├──────────────────┼───────────────────┤
+│ train_ann        │ 'train.json'      │
+├──────────────────┼───────────────────┤
+│ val_ann          │ 'test.json'       │
+├──────────────────┼───────────────────┤
+│ degrees          │ 10.0              │
+├──────────────────┼───────────────────┤
+│ translate        │ 0.1               │
+├──────────────────┼───────────────────┤
+│ scale            │ (0.1, 2)          │
+├──────────────────┼───────────────────┤
+│ mscale           │ (0.8, 1.6)        │
+├──────────────────┼───────────────────┤
+│ shear            │ 2.0               │
+├──────────────────┼───────────────────┤
+│ perspective      │ 0.0               │
+├──────────────────┼───────────────────┤
+│ enable_mixup     │ True              │
+├──────────────────┼───────────────────┤
+│ warmup_epochs    │ 1                 │
+├──────────────────┼───────────────────┤
+│ max_epoch        │ 80                │
+├──────────────────┼───────────────────┤
+│ warmup_lr        │ 0                 │
+├──────────────────┼───────────────────┤
+│ basic_lr_per_img │ 1.5625e-05        │
+├──────────────────┼───────────────────┤
+│ scheduler        │ 'yoloxwarmcos'    │
+├──────────────────┼───────────────────┤
+│ no_aug_epochs    │ 10                │
+├──────────────────┼───────────────────┤
+│ min_lr_ratio     │ 0.05              │
+├──────────────────┼───────────────────┤
+│ ema              │ True              │
+├──────────────────┼───────────────────┤
+│ weight_decay     │ 0.0005            │
+├──────────────────┼───────────────────┤
+│ momentum         │ 0.9               │
+├──────────────────┼───────────────────┤
+│ exp_name         │ 'yolox_x_mix_det' │
+├──────────────────┼───────────────────┤
+│ test_size        │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ test_conf        │ 0.001             │
+├──────────────────┼───────────────────┤
+│ nmsthre          │ 0.7               │
+╘══════════════════╧═══════════════════╛
+2024-08-08 19:49:50.961 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2024-08-08 19:49:51.503 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2024-08-08 19:49:51.897 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.0.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.0.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 19:49:51.897 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.0.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.0.bias in model is torch.Size([1]).
+2024-08-08 19:49:51.897 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.1.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.1.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 19:49:51.897 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.1.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.1.bias in model is torch.Size([1]).
+2024-08-08 19:49:51.898 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.2.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.2.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 19:49:51.898 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.2.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.2.bias in model is torch.Size([1]).
+2024-08-08 19:49:51.911 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2024-08-08 19:49:51.911 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (1131114), thread 'MainThread' (139621373899840):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7efad886d310>
+
+> File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7efad886d670>
+
+  File "tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7efad8225790>
+    └ <yolox.core.trainer.Trainer object at 0x7efad697adf0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 70, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7efad694c3a0>
+    └ <yolox.core.trainer.Trainer object at 0x7efad697adf0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 145, in before_train
+    self.train_loader = self.exp.get_data_loader(
+    │                   │    │   └ <function Exp.get_data_loader at 0x7efad69789d0>
+    │                   │    └ ╒══════════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │                   └ <yolox.core.trainer.Trainer object at 0x7efad697adf0>
+    └ <yolox.core.trainer.Trainer object at 0x7efad697adf0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/exps/example/mot/yolox_x_mix_det.py", line 42, in get_data_loader
+    dataset = MOTDataset(
+              └ <class 'yolox.data.datasets.mot.MOTDataset'>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mot.py", line 39, in __init__
+    self.coco = COCO(os.path.join(self.data_dir, "annotations", self.json_file))
+    │           │    │  │    │    │    │                        │    └ 'train.json'
+    │           │    │  │    │    │    │                        └ <yolox.data.datasets.mot.MOTDataset object at 0x7ef9fef6f3a0>
+    │           │    │  │    │    │    └ '/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/datasets/mix_det'
+    │           │    │  │    │    └ <yolox.data.datasets.mot.MOTDataset object at 0x7ef9fef6f3a0>
+    │           │    │  │    └ <function join at 0x7efc21fe1a60>
+    │           │    │  └ <module 'posixpath' from '/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/posixpath.py'>
+    │           │    └ <module 'os' from '/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/os.py'>
+    │           └ <class 'pycocotools.coco.COCO'>
+    └ <yolox.data.datasets.mot.MOTDataset object at 0x7ef9fef6f3a0>
+
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/pycocotools/coco.py", line 84, in __init__
+    dataset = json.load(open(annotation_file, 'r'))
+              │    │         └ '/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/datasets/mix_det/annotations/train.json'
+              │    └ <function load at 0x7efc213955e0>
+              └ <module 'json' from '/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/json/__init__.py'>
+
+FileNotFoundError: [Errno 2] No such file or directory: '/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/datasets/mix_det/annotations/train.json'
+2024-08-08 19:51:44.518 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(batch_size=16, ckpt='pretrained/bytetrack_ablation.pth.tar', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/mot/yolox_x_mix_det.py', experiment_name='yolox_x_mix_det', fp16=True, local_rank=0, machine_rank=0, name=None, num_machines=1, occupy=True, opts=[], resume=False, start_epoch=None)
+2024-08-08 19:51:44.519 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤═══════════════════╕
+│ keys             │ values            │
+╞══════════════════╪═══════════════════╡
+│ seed             │ None              │
+├──────────────────┼───────────────────┤
+│ output_dir       │ './YOLOX_outputs' │
+├──────────────────┼───────────────────┤
+│ print_interval   │ 20                │
+├──────────────────┼───────────────────┤
+│ eval_interval    │ 5                 │
+├──────────────────┼───────────────────┤
+│ num_classes      │ 1                 │
+├──────────────────┼───────────────────┤
+│ depth            │ 1.33              │
+├──────────────────┼───────────────────┤
+│ width            │ 1.25              │
+├──────────────────┼───────────────────┤
+│ data_num_workers │ 4                 │
+├──────────────────┼───────────────────┤
+│ input_size       │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ random_size      │ (18, 32)          │
+├──────────────────┼───────────────────┤
+│ train_ann        │ 'train.json'      │
+├──────────────────┼───────────────────┤
+│ val_ann          │ 'test.json'       │
+├──────────────────┼───────────────────┤
+│ degrees          │ 10.0              │
+├──────────────────┼───────────────────┤
+│ translate        │ 0.1               │
+├──────────────────┼───────────────────┤
+│ scale            │ (0.1, 2)          │
+├──────────────────┼───────────────────┤
+│ mscale           │ (0.8, 1.6)        │
+├──────────────────┼───────────────────┤
+│ shear            │ 2.0               │
+├──────────────────┼───────────────────┤
+│ perspective      │ 0.0               │
+├──────────────────┼───────────────────┤
+│ enable_mixup     │ True              │
+├──────────────────┼───────────────────┤
+│ warmup_epochs    │ 1                 │
+├──────────────────┼───────────────────┤
+│ max_epoch        │ 80                │
+├──────────────────┼───────────────────┤
+│ warmup_lr        │ 0                 │
+├──────────────────┼───────────────────┤
+│ basic_lr_per_img │ 1.5625e-05        │
+├──────────────────┼───────────────────┤
+│ scheduler        │ 'yoloxwarmcos'    │
+├──────────────────┼───────────────────┤
+│ no_aug_epochs    │ 10                │
+├──────────────────┼───────────────────┤
+│ min_lr_ratio     │ 0.05              │
+├──────────────────┼───────────────────┤
+│ ema              │ True              │
+├──────────────────┼───────────────────┤
+│ weight_decay     │ 0.0005            │
+├──────────────────┼───────────────────┤
+│ momentum         │ 0.9               │
+├──────────────────┼───────────────────┤
+│ exp_name         │ 'yolox_x_mix_det' │
+├──────────────────┼───────────────────┤
+│ test_size        │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ test_conf        │ 0.001             │
+├──────────────────┼───────────────────┤
+│ nmsthre          │ 0.7               │
+╘══════════════════╧═══════════════════╛
+2024-08-08 19:51:45.195 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2024-08-08 19:51:45.764 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2024-08-08 19:51:46.121 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2024-08-08 19:51:46.121 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (1145981), thread 'MainThread' (139920933012544):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7f4097a6e310>
+
+> File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f4097a6e670>
+
+  File "tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f4097425790>
+    └ <yolox.core.trainer.Trainer object at 0x7f4095b7ad90>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 70, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7f4095b4c3a0>
+    └ <yolox.core.trainer.Trainer object at 0x7f4095b7ad90>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 145, in before_train
+    self.train_loader = self.exp.get_data_loader(
+    │                   │    │   └ <function Exp.get_data_loader at 0x7f4095b789d0>
+    │                   │    └ ╒══════════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │                   └ <yolox.core.trainer.Trainer object at 0x7f4095b7ad90>
+    └ <yolox.core.trainer.Trainer object at 0x7f4095b7ad90>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/exps/example/mot/yolox_x_mix_det.py", line 42, in get_data_loader
+    dataset = MOTDataset(
+              └ <class 'yolox.data.datasets.mot.MOTDataset'>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mot.py", line 39, in __init__
+    self.coco = COCO(os.path.join(self.data_dir, "annotations", self.json_file))
+    │           │    │  │    │    │    │                        │    └ 'train.json'
+    │           │    │  │    │    │    │                        └ <yolox.data.datasets.mot.MOTDataset object at 0x7f409413ef10>
+    │           │    │  │    │    │    └ '/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/datasets/mix_det'
+    │           │    │  │    │    └ <yolox.data.datasets.mot.MOTDataset object at 0x7f409413ef10>
+    │           │    │  │    └ <function join at 0x7f41e11b6a60>
+    │           │    │  └ <module 'posixpath' from '/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/posixpath.py'>
+    │           │    └ <module 'os' from '/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/os.py'>
+    │           └ <class 'pycocotools.coco.COCO'>
+    └ <yolox.data.datasets.mot.MOTDataset object at 0x7f409413ef10>
+
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/pycocotools/coco.py", line 84, in __init__
+    dataset = json.load(open(annotation_file, 'r'))
+              │    │         └ '/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/datasets/mix_det/annotations/train.json'
+              │    └ <function load at 0x7f41e056a5e0>
+              └ <module 'json' from '/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/json/__init__.py'>
+
+FileNotFoundError: [Errno 2] No such file or directory: '/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/datasets/mix_det/annotations/train.json'
+2024-08-08 19:52:51.534 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(batch_size=16, ckpt='pretrained/bytetrack_ablation.pth.tar', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/mot/yolox_x_mix_det.py', experiment_name='yolox_x_mix_det', fp16=True, local_rank=0, machine_rank=0, name=None, num_machines=1, occupy=True, opts=[], resume=False, start_epoch=None)
+2024-08-08 19:52:51.535 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤═══════════════════╕
+│ keys             │ values            │
+╞══════════════════╪═══════════════════╡
+│ seed             │ None              │
+├──────────────────┼───────────────────┤
+│ output_dir       │ './YOLOX_outputs' │
+├──────────────────┼───────────────────┤
+│ print_interval   │ 20                │
+├──────────────────┼───────────────────┤
+│ eval_interval    │ 5                 │
+├──────────────────┼───────────────────┤
+│ num_classes      │ 1                 │
+├──────────────────┼───────────────────┤
+│ depth            │ 1.33              │
+├──────────────────┼───────────────────┤
+│ width            │ 1.25              │
+├──────────────────┼───────────────────┤
+│ data_num_workers │ 4                 │
+├──────────────────┼───────────────────┤
+│ input_size       │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ random_size      │ (18, 32)          │
+├──────────────────┼───────────────────┤
+│ train_ann        │ 'train.json'      │
+├──────────────────┼───────────────────┤
+│ val_ann          │ 'test.json'       │
+├──────────────────┼───────────────────┤
+│ degrees          │ 10.0              │
+├──────────────────┼───────────────────┤
+│ translate        │ 0.1               │
+├──────────────────┼───────────────────┤
+│ scale            │ (0.1, 2)          │
+├──────────────────┼───────────────────┤
+│ mscale           │ (0.8, 1.6)        │
+├──────────────────┼───────────────────┤
+│ shear            │ 2.0               │
+├──────────────────┼───────────────────┤
+│ perspective      │ 0.0               │
+├──────────────────┼───────────────────┤
+│ enable_mixup     │ True              │
+├──────────────────┼───────────────────┤
+│ warmup_epochs    │ 1                 │
+├──────────────────┼───────────────────┤
+│ max_epoch        │ 80                │
+├──────────────────┼───────────────────┤
+│ warmup_lr        │ 0                 │
+├──────────────────┼───────────────────┤
+│ basic_lr_per_img │ 1.5625e-05        │
+├──────────────────┼───────────────────┤
+│ scheduler        │ 'yoloxwarmcos'    │
+├──────────────────┼───────────────────┤
+│ no_aug_epochs    │ 10                │
+├──────────────────┼───────────────────┤
+│ min_lr_ratio     │ 0.05              │
+├──────────────────┼───────────────────┤
+│ ema              │ True              │
+├──────────────────┼───────────────────┤
+│ weight_decay     │ 0.0005            │
+├──────────────────┼───────────────────┤
+│ momentum         │ 0.9               │
+├──────────────────┼───────────────────┤
+│ exp_name         │ 'yolox_x_mix_det' │
+├──────────────────┼───────────────────┤
+│ test_size        │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ test_conf        │ 0.001             │
+├──────────────────┼───────────────────┤
+│ nmsthre          │ 0.7               │
+╘══════════════════╧═══════════════════╛
+2024-08-08 19:52:52.199 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2024-08-08 19:52:52.765 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2024-08-08 19:52:53.195 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2024-08-08 19:52:53.196 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (1163181), thread 'MainThread' (140011425449024):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7f55a96b2310>
+
+> File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f55a96b2670>
+
+  File "tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f55a9064790>
+    └ <yolox.core.trainer.Trainer object at 0x7f55a77bad90>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 70, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7f55a778c3a0>
+    └ <yolox.core.trainer.Trainer object at 0x7f55a77bad90>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 145, in before_train
+    self.train_loader = self.exp.get_data_loader(
+    │                   │    │   └ <function Exp.get_data_loader at 0x7f55a77b89d0>
+    │                   │    └ ╒══════════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │                   └ <yolox.core.trainer.Trainer object at 0x7f55a77bad90>
+    └ <yolox.core.trainer.Trainer object at 0x7f55a77bad90>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/exps/example/mot/yolox_x_mix_det.py", line 42, in get_data_loader
+    dataset = MOTDataset(
+              └ <class 'yolox.data.datasets.mot.MOTDataset'>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mot.py", line 39, in __init__
+    self.coco = COCO(os.path.join(self.data_dir, "annotations", self.json_file))
+    │           │    │  │    │    │    │                        │    └ 'train.json'
+    │           │    │  │    │    │    │                        └ <yolox.data.datasets.mot.MOTDataset object at 0x7f55a42c0f10>
+    │           │    │  │    │    │    └ '/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/datasets/mix_det'
+    │           │    │  │    │    └ <yolox.data.datasets.mot.MOTDataset object at 0x7f55a42c0f10>
+    │           │    │  │    └ <function join at 0x7f56f2e06a60>
+    │           │    │  └ <module 'posixpath' from '/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/posixpath.py'>
+    │           │    └ <module 'os' from '/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/os.py'>
+    │           └ <class 'pycocotools.coco.COCO'>
+    └ <yolox.data.datasets.mot.MOTDataset object at 0x7f55a42c0f10>
+
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/pycocotools/coco.py", line 84, in __init__
+    dataset = json.load(open(annotation_file, 'r'))
+              │    │         └ '/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/datasets/mix_det/annotations/train.json'
+              │    └ <function load at 0x7f56f21ba5e0>
+              └ <module 'json' from '/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/json/__init__.py'>
+
+FileNotFoundError: [Errno 2] No such file or directory: '/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/datasets/mix_det/annotations/train.json'
+2024-08-08 19:54:11.189 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(batch_size=16, ckpt='pretrained/bytetrack_ablation.pth.tar', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/mot/yolox_x_mix_det.py', experiment_name='yolox_x_mix_det', fp16=True, local_rank=0, machine_rank=0, name=None, num_machines=1, occupy=True, opts=[], resume=False, start_epoch=None)
+2024-08-08 19:54:11.190 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤═══════════════════╕
+│ keys             │ values            │
+╞══════════════════╪═══════════════════╡
+│ seed             │ None              │
+├──────────────────┼───────────────────┤
+│ output_dir       │ './YOLOX_outputs' │
+├──────────────────┼───────────────────┤
+│ print_interval   │ 20                │
+├──────────────────┼───────────────────┤
+│ eval_interval    │ 5                 │
+├──────────────────┼───────────────────┤
+│ num_classes      │ 1                 │
+├──────────────────┼───────────────────┤
+│ depth            │ 1.33              │
+├──────────────────┼───────────────────┤
+│ width            │ 1.25              │
+├──────────────────┼───────────────────┤
+│ data_num_workers │ 4                 │
+├──────────────────┼───────────────────┤
+│ input_size       │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ random_size      │ (18, 32)          │
+├──────────────────┼───────────────────┤
+│ train_ann        │ 'train.json'      │
+├──────────────────┼───────────────────┤
+│ val_ann          │ 'test.json'       │
+├──────────────────┼───────────────────┤
+│ degrees          │ 10.0              │
+├──────────────────┼───────────────────┤
+│ translate        │ 0.1               │
+├──────────────────┼───────────────────┤
+│ scale            │ (0.1, 2)          │
+├──────────────────┼───────────────────┤
+│ mscale           │ (0.8, 1.6)        │
+├──────────────────┼───────────────────┤
+│ shear            │ 2.0               │
+├──────────────────┼───────────────────┤
+│ perspective      │ 0.0               │
+├──────────────────┼───────────────────┤
+│ enable_mixup     │ True              │
+├──────────────────┼───────────────────┤
+│ warmup_epochs    │ 1                 │
+├──────────────────┼───────────────────┤
+│ max_epoch        │ 80                │
+├──────────────────┼───────────────────┤
+│ warmup_lr        │ 0                 │
+├──────────────────┼───────────────────┤
+│ basic_lr_per_img │ 1.5625e-05        │
+├──────────────────┼───────────────────┤
+│ scheduler        │ 'yoloxwarmcos'    │
+├──────────────────┼───────────────────┤
+│ no_aug_epochs    │ 10                │
+├──────────────────┼───────────────────┤
+│ min_lr_ratio     │ 0.05              │
+├──────────────────┼───────────────────┤
+│ ema              │ True              │
+├──────────────────┼───────────────────┤
+│ weight_decay     │ 0.0005            │
+├──────────────────┼───────────────────┤
+│ momentum         │ 0.9               │
+├──────────────────┼───────────────────┤
+│ exp_name         │ 'yolox_x_mix_det' │
+├──────────────────┼───────────────────┤
+│ test_size        │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ test_conf        │ 0.001             │
+├──────────────────┼───────────────────┤
+│ nmsthre          │ 0.7               │
+╘══════════════════╧═══════════════════╛
+2024-08-08 19:54:11.861 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2024-08-08 19:54:12.427 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2024-08-08 19:54:12.794 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2024-08-08 19:54:15.466 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=2.67s)
+2024-08-08 19:54:15.466 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2024-08-08 19:54:15.718 | INFO     | pycocotools.coco:__init__:88 - index created!
+2024-08-08 19:54:17.095 | INFO     | yolox.core.trainer:before_train:150 - init prefetcher, this might take one minute or less...
+2024-08-08 19:54:17.222 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (1174718), thread 'MainThread' (140691172627520):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7ff3ed49b310>
+
+> File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7ff3ed49b670>
+
+  File "tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7ff3ed1e3790>
+    └ <yolox.core.trainer.Trainer object at 0x7ff3eb939df0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 70, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7ff3eb90c3a0>
+    └ <yolox.core.trainer.Trainer object at 0x7ff3eb939df0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 151, in before_train
+    self.prefetcher = DataPrefetcher(self.train_loader)
+    │                 │              │    └ <yolox.data.dataloading.DataLoader object at 0x7ff313f15fd0>
+    │                 │              └ <yolox.core.trainer.Trainer object at 0x7ff3eb939df0>
+    │                 └ <class 'yolox.data.data_prefetcher.DataPrefetcher'>
+    └ <yolox.core.trainer.Trainer object at 0x7ff3eb939df0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/data_prefetcher.py", line 26, in __init__
+    self.preload()
+    │    └ <function DataPrefetcher.preload at 0x7ff3ed1f4310>
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7ff536eeef70>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/data_prefetcher.py", line 30, in preload
+    self.next_input, self.next_target, _, _ = next(self.loader)
+    │                │                             │    └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7ff313f153d0>
+    │                │                             └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7ff536eeef70>
+    │                └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7ff536eeef70>
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7ff536eeef70>
+
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+           │    └ <function _MultiProcessingDataLoaderIter._next_data at 0x7ff3fd933700>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7ff313f153d0>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+           │    │             └ <torch._utils.ExceptionWrapper object at 0x7ff3d0092970>
+           │    └ <function _MultiProcessingDataLoaderIter._process_data at 0x7ff3fd933820>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7ff313f153d0>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+    │    └ <function ExceptionWrapper.reraise at 0x7ff536237670>
+    └ <torch._utils.ExceptionWrapper object at 0x7ff3d0092970>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/_utils.py", line 644, in reraise
+    raise exception
+          └ AssertionError('Caught AssertionError in DataLoader worker process 0.\nOriginal Traceback (most recent call last):\n  File "/...
+
+AssertionError: Caught AssertionError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/datasets_wrapper.py", line 121, in wrapper
+    ret_val = getitem_fn(self, index)
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mosaicdetection.py", line 91, in __getitem__
+    img, _labels, _, _ = self._dataset.pull_item(index)
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mot.py", line 102, in pull_item
+    assert img is not None
+AssertionError
+
+2024-08-08 20:05:08.782 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(batch_size=8, ckpt='pretrained/yolox_x.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/mot/yolox_x_mix_det.py', experiment_name='yolox_x_mix_det', fp16=True, local_rank=0, machine_rank=0, name=None, num_machines=1, occupy=True, opts=[], resume=False, start_epoch=None)
+2024-08-08 20:05:08.783 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤═══════════════════╕
+│ keys             │ values            │
+╞══════════════════╪═══════════════════╡
+│ seed             │ None              │
+├──────────────────┼───────────────────┤
+│ output_dir       │ './YOLOX_outputs' │
+├──────────────────┼───────────────────┤
+│ print_interval   │ 20                │
+├──────────────────┼───────────────────┤
+│ eval_interval    │ 5                 │
+├──────────────────┼───────────────────┤
+│ num_classes      │ 1                 │
+├──────────────────┼───────────────────┤
+│ depth            │ 1.33              │
+├──────────────────┼───────────────────┤
+│ width            │ 1.25              │
+├──────────────────┼───────────────────┤
+│ data_num_workers │ 4                 │
+├──────────────────┼───────────────────┤
+│ input_size       │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ random_size      │ (18, 32)          │
+├──────────────────┼───────────────────┤
+│ train_ann        │ 'train.json'      │
+├──────────────────┼───────────────────┤
+│ val_ann          │ 'test.json'       │
+├──────────────────┼───────────────────┤
+│ degrees          │ 10.0              │
+├──────────────────┼───────────────────┤
+│ translate        │ 0.1               │
+├──────────────────┼───────────────────┤
+│ scale            │ (0.1, 2)          │
+├──────────────────┼───────────────────┤
+│ mscale           │ (0.8, 1.6)        │
+├──────────────────┼───────────────────┤
+│ shear            │ 2.0               │
+├──────────────────┼───────────────────┤
+│ perspective      │ 0.0               │
+├──────────────────┼───────────────────┤
+│ enable_mixup     │ True              │
+├──────────────────┼───────────────────┤
+│ warmup_epochs    │ 1                 │
+├──────────────────┼───────────────────┤
+│ max_epoch        │ 80                │
+├──────────────────┼───────────────────┤
+│ warmup_lr        │ 0                 │
+├──────────────────┼───────────────────┤
+│ basic_lr_per_img │ 1.5625e-05        │
+├──────────────────┼───────────────────┤
+│ scheduler        │ 'yoloxwarmcos'    │
+├──────────────────┼───────────────────┤
+│ no_aug_epochs    │ 10                │
+├──────────────────┼───────────────────┤
+│ min_lr_ratio     │ 0.05              │
+├──────────────────┼───────────────────┤
+│ ema              │ True              │
+├──────────────────┼───────────────────┤
+│ weight_decay     │ 0.0005            │
+├──────────────────┼───────────────────┤
+│ momentum         │ 0.9               │
+├──────────────────┼───────────────────┤
+│ exp_name         │ 'yolox_x_mix_det' │
+├──────────────────┼───────────────────┤
+│ test_size        │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ test_conf        │ 0.001             │
+├──────────────────┼───────────────────┤
+│ nmsthre          │ 0.7               │
+╘══════════════════╧═══════════════════╛
+2024-08-08 20:05:09.451 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2024-08-08 20:05:10.012 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2024-08-08 20:05:10.419 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.0.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.0.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:05:10.420 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.0.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.0.bias in model is torch.Size([1]).
+2024-08-08 20:05:10.420 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.1.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.1.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:05:10.420 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.1.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.1.bias in model is torch.Size([1]).
+2024-08-08 20:05:10.420 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.2.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.2.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:05:10.420 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.2.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.2.bias in model is torch.Size([1]).
+2024-08-08 20:05:10.434 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2024-08-08 20:05:13.235 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=2.80s)
+2024-08-08 20:05:13.235 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2024-08-08 20:05:13.499 | INFO     | pycocotools.coco:__init__:88 - index created!
+2024-08-08 20:05:14.897 | INFO     | yolox.core.trainer:before_train:150 - init prefetcher, this might take one minute or less...
+2024-08-08 20:05:15.022 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (1263298), thread 'MainThread' (139968702526528):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7f4bb6b5c310>
+
+> File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f4bb6b5c670>
+
+  File "tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f4bb68a5790>
+    └ <yolox.core.trainer.Trainer object at 0x7f4bb4ffbca0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 70, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7f4bb4fcb3a0>
+    └ <yolox.core.trainer.Trainer object at 0x7f4bb4ffbca0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 151, in before_train
+    self.prefetcher = DataPrefetcher(self.train_loader)
+    │                 │              │    └ <yolox.data.dataloading.DataLoader object at 0x7f4ae3308040>
+    │                 │              └ <yolox.core.trainer.Trainer object at 0x7f4bb4ffbca0>
+    │                 └ <class 'yolox.data.data_prefetcher.DataPrefetcher'>
+    └ <yolox.core.trainer.Trainer object at 0x7f4bb4ffbca0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/data_prefetcher.py", line 26, in __init__
+    self.preload()
+    │    └ <function DataPrefetcher.preload at 0x7f4bb68b4310>
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7f4bb4f91670>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/data_prefetcher.py", line 30, in preload
+    self.next_input, self.next_target, _, _ = next(self.loader)
+    │                │                             │    └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f4ae33083a0>
+    │                │                             └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7f4bb4f91670>
+    │                └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7f4bb4f91670>
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7f4bb4f91670>
+
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+           │    └ <function _MultiProcessingDataLoaderIter._next_data at 0x7f4bc6ff4700>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f4ae33083a0>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+           │    │             └ <torch._utils.ExceptionWrapper object at 0x7f4bb1b17df0>
+           │    └ <function _MultiProcessingDataLoaderIter._process_data at 0x7f4bc6ff4820>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f4ae33083a0>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+    │    └ <function ExceptionWrapper.reraise at 0x7f4cff908670>
+    └ <torch._utils.ExceptionWrapper object at 0x7f4bb1b17df0>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/_utils.py", line 644, in reraise
+    raise exception
+          └ AssertionError('Caught AssertionError in DataLoader worker process 0.\nOriginal Traceback (most recent call last):\n  File "/...
+
+AssertionError: Caught AssertionError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/datasets_wrapper.py", line 121, in wrapper
+    ret_val = getitem_fn(self, index)
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mosaicdetection.py", line 91, in __getitem__
+    img, _labels, _, _ = self._dataset.pull_item(index)
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mot.py", line 102, in pull_item
+    assert img is not None
+AssertionError
+
+2024-08-08 20:18:24.130 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(batch_size=8, ckpt='pretrained/yolox_x.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/mot/yolox_x_mix_det.py', experiment_name='yolox_x_mix_det', fp16=True, local_rank=0, machine_rank=0, name=None, num_machines=1, occupy=True, opts=[], resume=False, start_epoch=None)
+2024-08-08 20:18:24.131 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤═══════════════════╕
+│ keys             │ values            │
+╞══════════════════╪═══════════════════╡
+│ seed             │ None              │
+├──────────────────┼───────────────────┤
+│ output_dir       │ './YOLOX_outputs' │
+├──────────────────┼───────────────────┤
+│ print_interval   │ 20                │
+├──────────────────┼───────────────────┤
+│ eval_interval    │ 5                 │
+├──────────────────┼───────────────────┤
+│ num_classes      │ 1                 │
+├──────────────────┼───────────────────┤
+│ depth            │ 1.33              │
+├──────────────────┼───────────────────┤
+│ width            │ 1.25              │
+├──────────────────┼───────────────────┤
+│ data_num_workers │ 4                 │
+├──────────────────┼───────────────────┤
+│ input_size       │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ random_size      │ (18, 32)          │
+├──────────────────┼───────────────────┤
+│ train_ann        │ 'train.json'      │
+├──────────────────┼───────────────────┤
+│ val_ann          │ 'test.json'       │
+├──────────────────┼───────────────────┤
+│ degrees          │ 10.0              │
+├──────────────────┼───────────────────┤
+│ translate        │ 0.1               │
+├──────────────────┼───────────────────┤
+│ scale            │ (0.1, 2)          │
+├──────────────────┼───────────────────┤
+│ mscale           │ (0.8, 1.6)        │
+├──────────────────┼───────────────────┤
+│ shear            │ 2.0               │
+├──────────────────┼───────────────────┤
+│ perspective      │ 0.0               │
+├──────────────────┼───────────────────┤
+│ enable_mixup     │ True              │
+├──────────────────┼───────────────────┤
+│ warmup_epochs    │ 1                 │
+├──────────────────┼───────────────────┤
+│ max_epoch        │ 80                │
+├──────────────────┼───────────────────┤
+│ warmup_lr        │ 0                 │
+├──────────────────┼───────────────────┤
+│ basic_lr_per_img │ 1.5625e-05        │
+├──────────────────┼───────────────────┤
+│ scheduler        │ 'yoloxwarmcos'    │
+├──────────────────┼───────────────────┤
+│ no_aug_epochs    │ 10                │
+├──────────────────┼───────────────────┤
+│ min_lr_ratio     │ 0.05              │
+├──────────────────┼───────────────────┤
+│ ema              │ True              │
+├──────────────────┼───────────────────┤
+│ weight_decay     │ 0.0005            │
+├──────────────────┼───────────────────┤
+│ momentum         │ 0.9               │
+├──────────────────┼───────────────────┤
+│ exp_name         │ 'yolox_x_mix_det' │
+├──────────────────┼───────────────────┤
+│ test_size        │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ test_conf        │ 0.001             │
+├──────────────────┼───────────────────┤
+│ nmsthre          │ 0.7               │
+╘══════════════════╧═══════════════════╛
+2024-08-08 20:18:24.805 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2024-08-08 20:18:25.369 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2024-08-08 20:18:25.715 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.0.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.0.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:18:25.715 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.0.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.0.bias in model is torch.Size([1]).
+2024-08-08 20:18:25.715 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.1.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.1.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:18:25.715 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.1.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.1.bias in model is torch.Size([1]).
+2024-08-08 20:18:25.716 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.2.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.2.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:18:25.716 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.2.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.2.bias in model is torch.Size([1]).
+2024-08-08 20:18:25.731 | INFO     | yolox.data.datasets.mot:__init__:40 - loading annotations into memory...
+2024-08-08 20:18:28.549 | INFO     | yolox.data.datasets.mot:__init__:40 - Done (t=2.82s)
+2024-08-08 20:18:28.549 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2024-08-08 20:18:28.860 | INFO     | pycocotools.coco:__init__:88 - index created!
+2024-08-08 20:18:30.362 | INFO     | yolox.core.trainer:before_train:150 - init prefetcher, this might take one minute or less...
+2024-08-08 20:18:30.511 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (1290983), thread 'MainThread' (140661586347072):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7fed0a06d310>
+
+> File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7fed0a06d670>
+
+  File "tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7fed09a24790>
+    └ <yolox.core.trainer.Trainer object at 0x7fed0817bca0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 70, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7fed0814c310>
+    └ <yolox.core.trainer.Trainer object at 0x7fed0817bca0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 151, in before_train
+    self.prefetcher = DataPrefetcher(self.train_loader)
+    │                 │              │    └ <yolox.data.dataloading.DataLoader object at 0x7fec364b4580>
+    │                 │              └ <yolox.core.trainer.Trainer object at 0x7fed0817bca0>
+    │                 └ <class 'yolox.data.data_prefetcher.DataPrefetcher'>
+    └ <yolox.core.trainer.Trainer object at 0x7fed0817bca0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/data_prefetcher.py", line 26, in __init__
+    self.preload()
+    │    └ <function DataPrefetcher.preload at 0x7fed09a34310>
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7fed0813d130>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/data_prefetcher.py", line 30, in preload
+    self.next_input, self.next_target, _, _ = next(self.loader)
+    │                │                             │    └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7fec364b4220>
+    │                │                             └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7fed0813d130>
+    │                └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7fed0813d130>
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7fed0813d130>
+
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+           │    └ <function _MultiProcessingDataLoaderIter._next_data at 0x7fed1a174700>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7fec364b4220>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+           │    │             └ <torch._utils.ExceptionWrapper object at 0x7fed04cf79d0>
+           │    └ <function _MultiProcessingDataLoaderIter._process_data at 0x7fed1a174820>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7fec364b4220>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+    │    └ <function ExceptionWrapper.reraise at 0x7fee52a89670>
+    └ <torch._utils.ExceptionWrapper object at 0x7fed04cf79d0>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/_utils.py", line 644, in reraise
+    raise exception
+          └ AssertionError('Caught AssertionError in DataLoader worker process 0.\nOriginal Traceback (most recent call last):\n  File "/...
+
+AssertionError: Caught AssertionError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/datasets_wrapper.py", line 121, in wrapper
+    ret_val = getitem_fn(self, index)
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mosaicdetection.py", line 91, in __getitem__
+    img, _labels, _, _ = self._dataset.pull_item(index)
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mot.py", line 103, in pull_item
+    assert img is not None
+AssertionError
+
+2024-08-08 20:18:42.530 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(batch_size=8, ckpt='pretrained/yolox_x.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/mot/yolox_x_mix_det.py', experiment_name='yolox_x_mix_det', fp16=True, local_rank=0, machine_rank=0, name=None, num_machines=1, occupy=True, opts=[], resume=False, start_epoch=None)
+2024-08-08 20:18:42.531 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤═══════════════════╕
+│ keys             │ values            │
+╞══════════════════╪═══════════════════╡
+│ seed             │ None              │
+├──────────────────┼───────────────────┤
+│ output_dir       │ './YOLOX_outputs' │
+├──────────────────┼───────────────────┤
+│ print_interval   │ 20                │
+├──────────────────┼───────────────────┤
+│ eval_interval    │ 5                 │
+├──────────────────┼───────────────────┤
+│ num_classes      │ 1                 │
+├──────────────────┼───────────────────┤
+│ depth            │ 1.33              │
+├──────────────────┼───────────────────┤
+│ width            │ 1.25              │
+├──────────────────┼───────────────────┤
+│ data_num_workers │ 4                 │
+├──────────────────┼───────────────────┤
+│ input_size       │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ random_size      │ (18, 32)          │
+├──────────────────┼───────────────────┤
+│ train_ann        │ 'train.json'      │
+├──────────────────┼───────────────────┤
+│ val_ann          │ 'test.json'       │
+├──────────────────┼───────────────────┤
+│ degrees          │ 10.0              │
+├──────────────────┼───────────────────┤
+│ translate        │ 0.1               │
+├──────────────────┼───────────────────┤
+│ scale            │ (0.1, 2)          │
+├──────────────────┼───────────────────┤
+│ mscale           │ (0.8, 1.6)        │
+├──────────────────┼───────────────────┤
+│ shear            │ 2.0               │
+├──────────────────┼───────────────────┤
+│ perspective      │ 0.0               │
+├──────────────────┼───────────────────┤
+│ enable_mixup     │ True              │
+├──────────────────┼───────────────────┤
+│ warmup_epochs    │ 1                 │
+├──────────────────┼───────────────────┤
+│ max_epoch        │ 80                │
+├──────────────────┼───────────────────┤
+│ warmup_lr        │ 0                 │
+├──────────────────┼───────────────────┤
+│ basic_lr_per_img │ 1.5625e-05        │
+├──────────────────┼───────────────────┤
+│ scheduler        │ 'yoloxwarmcos'    │
+├──────────────────┼───────────────────┤
+│ no_aug_epochs    │ 10                │
+├──────────────────┼───────────────────┤
+│ min_lr_ratio     │ 0.05              │
+├──────────────────┼───────────────────┤
+│ ema              │ True              │
+├──────────────────┼───────────────────┤
+│ weight_decay     │ 0.0005            │
+├──────────────────┼───────────────────┤
+│ momentum         │ 0.9               │
+├──────────────────┼───────────────────┤
+│ exp_name         │ 'yolox_x_mix_det' │
+├──────────────────┼───────────────────┤
+│ test_size        │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ test_conf        │ 0.001             │
+├──────────────────┼───────────────────┤
+│ nmsthre          │ 0.7               │
+╘══════════════════╧═══════════════════╛
+2024-08-08 20:18:43.196 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2024-08-08 20:18:43.771 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2024-08-08 20:18:44.137 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.0.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.0.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:18:44.138 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.0.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.0.bias in model is torch.Size([1]).
+2024-08-08 20:18:44.138 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.1.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.1.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:18:44.138 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.1.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.1.bias in model is torch.Size([1]).
+2024-08-08 20:18:44.138 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.2.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.2.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:18:44.138 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.2.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.2.bias in model is torch.Size([1]).
+2024-08-08 20:18:44.154 | INFO     | yolox.data.datasets.mot:__init__:40 - loading annotations into memory...
+2024-08-08 20:18:47.029 | INFO     | yolox.data.datasets.mot:__init__:40 - Done (t=2.87s)
+2024-08-08 20:18:47.029 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2024-08-08 20:18:47.314 | INFO     | pycocotools.coco:__init__:88 - index created!
+2024-08-08 20:18:48.882 | INFO     | yolox.core.trainer:before_train:150 - init prefetcher, this might take one minute or less...
+2024-08-08 20:18:49.008 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (1295837), thread 'MainThread' (140537969833024):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7fd041e6e310>
+
+> File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7fd041e6e670>
+
+  File "tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7fd041825790>
+    └ <yolox.core.trainer.Trainer object at 0x7fd03ff7dca0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 70, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7fd03ff4c310>
+    └ <yolox.core.trainer.Trainer object at 0x7fd03ff7dca0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 151, in before_train
+    self.prefetcher = DataPrefetcher(self.train_loader)
+    │                 │              │    └ <yolox.data.dataloading.DataLoader object at 0x7fcf6e2a4580>
+    │                 │              └ <yolox.core.trainer.Trainer object at 0x7fd03ff7dca0>
+    │                 └ <class 'yolox.data.data_prefetcher.DataPrefetcher'>
+    └ <yolox.core.trainer.Trainer object at 0x7fd03ff7dca0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/data_prefetcher.py", line 26, in __init__
+    self.preload()
+    │    └ <function DataPrefetcher.preload at 0x7fd041834310>
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7fcf6e2a4220>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/data_prefetcher.py", line 30, in preload
+    self.next_input, self.next_target, _, _ = next(self.loader)
+    │                │                             │    └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7fcf6e2a44f0>
+    │                │                             └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7fcf6e2a4220>
+    │                └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7fcf6e2a4220>
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7fcf6e2a4220>
+
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+           │    └ <function _MultiProcessingDataLoaderIter._next_data at 0x7fd051f73700>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7fcf6e2a44f0>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+           │    │             └ <torch._utils.ExceptionWrapper object at 0x7fd03caf8ac0>
+           │    └ <function _MultiProcessingDataLoaderIter._process_data at 0x7fd051f73820>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7fcf6e2a44f0>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+    │    └ <function ExceptionWrapper.reraise at 0x7fd18a8a4670>
+    └ <torch._utils.ExceptionWrapper object at 0x7fd03caf8ac0>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/_utils.py", line 644, in reraise
+    raise exception
+          └ AssertionError('Caught AssertionError in DataLoader worker process 0.\nOriginal Traceback (most recent call last):\n  File "/...
+
+AssertionError: Caught AssertionError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/datasets_wrapper.py", line 121, in wrapper
+    ret_val = getitem_fn(self, index)
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mosaicdetection.py", line 91, in __getitem__
+    img, _labels, _, _ = self._dataset.pull_item(index)
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mot.py", line 103, in pull_item
+    assert img is not None
+AssertionError
+
+2024-08-08 20:19:45.526 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(batch_size=8, ckpt='pretrained/yolox_x.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/mot/yolox_x_mix_det.py', experiment_name='yolox_x_mix_det', fp16=True, local_rank=0, machine_rank=0, name=None, num_machines=1, occupy=True, opts=[], resume=False, start_epoch=None)
+2024-08-08 20:19:45.527 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤═══════════════════╕
+│ keys             │ values            │
+╞══════════════════╪═══════════════════╡
+│ seed             │ None              │
+├──────────────────┼───────────────────┤
+│ output_dir       │ './YOLOX_outputs' │
+├──────────────────┼───────────────────┤
+│ print_interval   │ 20                │
+├──────────────────┼───────────────────┤
+│ eval_interval    │ 5                 │
+├──────────────────┼───────────────────┤
+│ num_classes      │ 1                 │
+├──────────────────┼───────────────────┤
+│ depth            │ 1.33              │
+├──────────────────┼───────────────────┤
+│ width            │ 1.25              │
+├──────────────────┼───────────────────┤
+│ data_num_workers │ 4                 │
+├──────────────────┼───────────────────┤
+│ input_size       │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ random_size      │ (18, 32)          │
+├──────────────────┼───────────────────┤
+│ train_ann        │ 'train.json'      │
+├──────────────────┼───────────────────┤
+│ val_ann          │ 'test.json'       │
+├──────────────────┼───────────────────┤
+│ degrees          │ 10.0              │
+├──────────────────┼───────────────────┤
+│ translate        │ 0.1               │
+├──────────────────┼───────────────────┤
+│ scale            │ (0.1, 2)          │
+├──────────────────┼───────────────────┤
+│ mscale           │ (0.8, 1.6)        │
+├──────────────────┼───────────────────┤
+│ shear            │ 2.0               │
+├──────────────────┼───────────────────┤
+│ perspective      │ 0.0               │
+├──────────────────┼───────────────────┤
+│ enable_mixup     │ True              │
+├──────────────────┼───────────────────┤
+│ warmup_epochs    │ 1                 │
+├──────────────────┼───────────────────┤
+│ max_epoch        │ 80                │
+├──────────────────┼───────────────────┤
+│ warmup_lr        │ 0                 │
+├──────────────────┼───────────────────┤
+│ basic_lr_per_img │ 1.5625e-05        │
+├──────────────────┼───────────────────┤
+│ scheduler        │ 'yoloxwarmcos'    │
+├──────────────────┼───────────────────┤
+│ no_aug_epochs    │ 10                │
+├──────────────────┼───────────────────┤
+│ min_lr_ratio     │ 0.05              │
+├──────────────────┼───────────────────┤
+│ ema              │ True              │
+├──────────────────┼───────────────────┤
+│ weight_decay     │ 0.0005            │
+├──────────────────┼───────────────────┤
+│ momentum         │ 0.9               │
+├──────────────────┼───────────────────┤
+│ exp_name         │ 'yolox_x_mix_det' │
+├──────────────────┼───────────────────┤
+│ test_size        │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ test_conf        │ 0.001             │
+├──────────────────┼───────────────────┤
+│ nmsthre          │ 0.7               │
+╘══════════════════╧═══════════════════╛
+2024-08-08 20:19:46.237 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2024-08-08 20:19:46.817 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2024-08-08 20:19:47.185 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.0.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.0.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:19:47.186 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.0.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.0.bias in model is torch.Size([1]).
+2024-08-08 20:19:47.186 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.1.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.1.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:19:47.186 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.1.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.1.bias in model is torch.Size([1]).
+2024-08-08 20:19:47.186 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.2.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.2.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:19:47.186 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.2.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.2.bias in model is torch.Size([1]).
+2024-08-08 20:19:47.202 | INFO     | yolox.data.datasets.mot:__init__:40 - loading annotations into memory...
+2024-08-08 20:19:50.127 | INFO     | yolox.data.datasets.mot:__init__:40 - Done (t=2.92s)
+2024-08-08 20:19:50.127 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2024-08-08 20:19:50.415 | INFO     | pycocotools.coco:__init__:88 - index created!
+2024-08-08 20:19:51.915 | INFO     | yolox.core.trainer:before_train:150 - init prefetcher, this might take one minute or less...
+2024-08-08 20:19:52.039 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (1297962), thread 'MainThread' (140412667790400):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7fb3151dc310>
+
+> File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7fb3151dc670>
+
+  File "tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7fb314f25790>
+    └ <yolox.core.trainer.Trainer object at 0x7fb31367bc40>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 70, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7fb31364c310>
+    └ <yolox.core.trainer.Trainer object at 0x7fb31367bc40>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 151, in before_train
+    self.prefetcher = DataPrefetcher(self.train_loader)
+    │                 │              │    └ <yolox.data.dataloading.DataLoader object at 0x7fb23bc54ee0>
+    │                 │              └ <yolox.core.trainer.Trainer object at 0x7fb31367bc40>
+    │                 └ <class 'yolox.data.data_prefetcher.DataPrefetcher'>
+    └ <yolox.core.trainer.Trainer object at 0x7fb31367bc40>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/data_prefetcher.py", line 26, in __init__
+    self.preload()
+    │    └ <function DataPrefetcher.preload at 0x7fb314f34310>
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7fb23bc54220>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/data_prefetcher.py", line 30, in preload
+    self.next_input, self.next_target, _, _ = next(self.loader)
+    │                │                             │    └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7fb23bc54e50>
+    │                │                             └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7fb23bc54220>
+    │                └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7fb23bc54220>
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7fb23bc54220>
+
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+           │    └ <function _MultiProcessingDataLoaderIter._next_data at 0x7fb325873700>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7fb23bc54e50>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+           │    │             └ <torch._utils.ExceptionWrapper object at 0x7fb303f95940>
+           │    └ <function _MultiProcessingDataLoaderIter._process_data at 0x7fb325873820>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7fb23bc54e50>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+    │    └ <function ExceptionWrapper.reraise at 0x7fb45df4c670>
+    └ <torch._utils.ExceptionWrapper object at 0x7fb303f95940>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/_utils.py", line 644, in reraise
+    raise exception
+          └ AssertionError('Caught AssertionError in DataLoader worker process 0.\nOriginal Traceback (most recent call last):\n  File "/...
+
+AssertionError: Caught AssertionError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/datasets_wrapper.py", line 121, in wrapper
+    ret_val = getitem_fn(self, index)
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mosaicdetection.py", line 91, in __getitem__
+    img, _labels, _, _ = self._dataset.pull_item(index)
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mot.py", line 103, in pull_item
+    assert img is not None
+AssertionError
+
+2024-08-08 20:36:32.982 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(batch_size=8, ckpt='pretrained/yolox_x.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/mot/yolox_x_mix_det.py', experiment_name='yolox_x_mix_det', fp16=True, local_rank=0, machine_rank=0, name=None, num_machines=1, occupy=True, opts=[], resume=False, start_epoch=None)
+2024-08-08 20:36:32.983 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤═══════════════════╕
+│ keys             │ values            │
+╞══════════════════╪═══════════════════╡
+│ seed             │ None              │
+├──────────────────┼───────────────────┤
+│ output_dir       │ './YOLOX_outputs' │
+├──────────────────┼───────────────────┤
+│ print_interval   │ 20                │
+├──────────────────┼───────────────────┤
+│ eval_interval    │ 5                 │
+├──────────────────┼───────────────────┤
+│ num_classes      │ 1                 │
+├──────────────────┼───────────────────┤
+│ depth            │ 1.33              │
+├──────────────────┼───────────────────┤
+│ width            │ 1.25              │
+├──────────────────┼───────────────────┤
+│ data_num_workers │ 4                 │
+├──────────────────┼───────────────────┤
+│ input_size       │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ random_size      │ (18, 32)          │
+├──────────────────┼───────────────────┤
+│ train_ann        │ 'train.json'      │
+├──────────────────┼───────────────────┤
+│ val_ann          │ 'test.json'       │
+├──────────────────┼───────────────────┤
+│ degrees          │ 10.0              │
+├──────────────────┼───────────────────┤
+│ translate        │ 0.1               │
+├──────────────────┼───────────────────┤
+│ scale            │ (0.1, 2)          │
+├──────────────────┼───────────────────┤
+│ mscale           │ (0.8, 1.6)        │
+├──────────────────┼───────────────────┤
+│ shear            │ 2.0               │
+├──────────────────┼───────────────────┤
+│ perspective      │ 0.0               │
+├──────────────────┼───────────────────┤
+│ enable_mixup     │ True              │
+├──────────────────┼───────────────────┤
+│ warmup_epochs    │ 1                 │
+├──────────────────┼───────────────────┤
+│ max_epoch        │ 80                │
+├──────────────────┼───────────────────┤
+│ warmup_lr        │ 0                 │
+├──────────────────┼───────────────────┤
+│ basic_lr_per_img │ 1.5625e-05        │
+├──────────────────┼───────────────────┤
+│ scheduler        │ 'yoloxwarmcos'    │
+├──────────────────┼───────────────────┤
+│ no_aug_epochs    │ 10                │
+├──────────────────┼───────────────────┤
+│ min_lr_ratio     │ 0.05              │
+├──────────────────┼───────────────────┤
+│ ema              │ True              │
+├──────────────────┼───────────────────┤
+│ weight_decay     │ 0.0005            │
+├──────────────────┼───────────────────┤
+│ momentum         │ 0.9               │
+├──────────────────┼───────────────────┤
+│ exp_name         │ 'yolox_x_mix_det' │
+├──────────────────┼───────────────────┤
+│ test_size        │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ test_conf        │ 0.001             │
+├──────────────────┼───────────────────┤
+│ nmsthre          │ 0.7               │
+╘══════════════════╧═══════════════════╛
+2024-08-08 20:36:33.678 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2024-08-08 20:36:34.214 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2024-08-08 20:36:34.571 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.0.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.0.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:36:34.571 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.0.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.0.bias in model is torch.Size([1]).
+2024-08-08 20:36:34.571 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.1.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.1.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:36:34.572 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.1.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.1.bias in model is torch.Size([1]).
+2024-08-08 20:36:34.572 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.2.weight in checkpoint is torch.Size([80, 320, 1, 1]), while shape of head.cls_preds.2.weight in model is torch.Size([1, 320, 1, 1]).
+2024-08-08 20:36:34.572 | WARNING  | yolox.utils.checkpoint:load_ckpt:25 - Shape of head.cls_preds.2.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.2.bias in model is torch.Size([1]).
+2024-08-08 20:36:34.586 | INFO     | yolox.data.datasets.mot:__init__:40 - loading annotations into memory...
+2024-08-08 20:36:37.303 | INFO     | yolox.data.datasets.mot:__init__:40 - Done (t=2.72s)
+2024-08-08 20:36:37.304 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2024-08-08 20:36:37.585 | INFO     | pycocotools.coco:__init__:88 - index created!
+2024-08-08 20:36:38.982 | INFO     | yolox.core.trainer:before_train:150 - init prefetcher, this might take one minute or less...
+2024-08-08 20:36:39.106 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (1414168), thread 'MainThread' (139738048885824):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7f1602e6d310>
+
+> File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f1602e6d670>
+
+  File "tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f1602823790>
+    └ <yolox.core.trainer.Trainer object at 0x7f1600f79df0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 70, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7f1600f4b3a0>
+    └ <yolox.core.trainer.Trainer object at 0x7f1600f79df0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/trainer.py", line 151, in before_train
+    self.prefetcher = DataPrefetcher(self.train_loader)
+    │                 │              │    └ <yolox.data.dataloading.DataLoader object at 0x7f15295840a0>
+    │                 │              └ <yolox.core.trainer.Trainer object at 0x7f1600f79df0>
+    │                 └ <class 'yolox.data.data_prefetcher.DataPrefetcher'>
+    └ <yolox.core.trainer.Trainer object at 0x7f1600f79df0>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/data_prefetcher.py", line 26, in __init__
+    self.preload()
+    │    └ <function DataPrefetcher.preload at 0x7f1602834310>
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7f1529584160>
+
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/data_prefetcher.py", line 30, in preload
+    self.next_input, self.next_target, _, _ = next(self.loader)
+    │                │                             │    └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f1529584fd0>
+    │                │                             └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7f1529584160>
+    │                └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7f1529584160>
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7f1529584160>
+
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+           │    └ <function _MultiProcessingDataLoaderIter._next_data at 0x7f1612f74700>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f1529584fd0>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+           │    │             └ <torch._utils.ExceptionWrapper object at 0x7f15dc111d90>
+           │    └ <function _MultiProcessingDataLoaderIter._process_data at 0x7f1612f74820>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f1529584fd0>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+    │    └ <function ExceptionWrapper.reraise at 0x7f174b894670>
+    └ <torch._utils.ExceptionWrapper object at 0x7f15dc111d90>
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/_utils.py", line 644, in reraise
+    raise exception
+          └ AssertionError('Caught AssertionError in DataLoader worker process 0.\nOriginal Traceback (most recent call last):\n  File "/...
+
+AssertionError: Caught AssertionError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/sophie/miniconda3/envs/Bytetrack/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/datasets_wrapper.py", line 121, in wrapper
+    ret_val = getitem_fn(self, index)
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mosaicdetection.py", line 91, in __getitem__
+    img, _labels, _, _ = self._dataset.pull_item(index)
+  File "/home/sophie/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/data/datasets/mot.py", line 103, in pull_item
+    assert img is not None
+AssertionError
+

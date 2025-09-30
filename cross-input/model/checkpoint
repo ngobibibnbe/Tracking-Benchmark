@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/ubuntu/2020feb23-ensemble/model"
+all_model_checkpoint_paths: "/home/ubuntu/2020feb23-ensemble/model"

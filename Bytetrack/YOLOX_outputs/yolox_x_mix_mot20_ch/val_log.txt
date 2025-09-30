@@ -1,0 +1,115 @@
+2025-02-22 16:45:16.155 | INFO     | __main__:main:154 - Args: Namespace(batch_size=1, ckpt='pretrained/bytetrack_x_mot20.pth.tar', conf=0.01, devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/mot/yolox_x_mix_mot20_ch.py', experiment_name='yolox_x_mix_mot20_ch', fp16=True, fuse=True, local_rank=0, machine_rank=0, match_thresh=0.7, min_box_area=100, mot20=True, name=None, nms=0.7, num_machines=1, opts=[], seed=None, speed=False, test=False, track_buffer=30, track_thresh=0.6, trt=False, tsize=None)
+2025-02-22 16:45:16.780 | INFO     | __main__:main:164 - Model Summary: Params: 99.00M, Gflops: 987.11
+2025-02-22 16:45:16.781 | INFO     | yolox.data.datasets.mot:__init__:40 - loading annotations into memory...
+2025-02-22 16:45:16.786 | INFO     | yolox.data.datasets.mot:__init__:40 - Done (t=0.01s)
+2025-02-22 16:45:16.787 | INFO     | pycocotools.coco:__init__:86 - creating index...
+2025-02-22 16:45:16.787 | INFO     | pycocotools.coco:__init__:86 - index created!
+2025-02-22 16:45:17.593 | INFO     | __main__:main:186 - loading checkpoint
+2025-02-22 16:45:17.593 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (2712994), thread 'MainThread' (128934746273280):
+Traceback (most recent call last):
+
+  File "tools/track.py", line 296, in <module>
+    args=(exp, args, num_gpu),
+          │    │     └ 1
+          │    └ Namespace(batch_size=1, ckpt='pretrained/bytetrack_x_mot20.pth.tar', conf=0.01, devices=1, dist_backend='nccl', dist_url=None...
+          └ ╒══════════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════════...
+
+> File "/data/home/sophie/sophie_2024-10-08/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7543f4f03830>
+
+  File "tools/track.py", line 188, in main
+    ckpt = torch.load(ckpt_file, map_location=loc)
+           │     │    │                       └ 'cuda:0'
+           │     │    └ 'pretrained/bytetrack_x_mot20.pth.tar'
+           │     └ <function load at 0x7543ea733b00>
+           └ <module 'torch' from '/data/home/sophie/anaconda3/envs/Bytetrack2/lib/python3.7/site-packages/torch/__init__.py'>
+
+  File "/data/home/sophie/anaconda3/envs/Bytetrack2/lib/python3.7/site-packages/torch/serialization.py", line 771, in load
+    with _open_file_like(f, 'rb') as opened_file:
+         │               └ 'pretrained/bytetrack_x_mot20.pth.tar'
+         └ <function _open_file_like at 0x7543ea72a320>
+  File "/data/home/sophie/anaconda3/envs/Bytetrack2/lib/python3.7/site-packages/torch/serialization.py", line 270, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           │          │               └ 'rb'
+           │          └ 'pretrained/bytetrack_x_mot20.pth.tar'
+           └ <class 'torch.serialization._open_file'>
+  File "/data/home/sophie/anaconda3/envs/Bytetrack2/lib/python3.7/site-packages/torch/serialization.py", line 251, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+          │           │                   │     └ 'rb'
+          │           │                   └ 'pretrained/bytetrack_x_mot20.pth.tar'
+          │           └ <torch.serialization._open_file object at 0x7542e0655e10>
+          └ <class 'torch.serialization._open_file'>
+
+FileNotFoundError: [Errno 2] No such file or directory: 'pretrained/bytetrack_x_mot20.pth.tar'
+2025-02-22 16:46:01.020 | INFO     | __main__:main:154 - Args: Namespace(batch_size=1, ckpt='pretrained/bytetrack_x_mot20.pth.tar', conf=0.01, devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/mot/yolox_x_mix_mot20_ch.py', experiment_name='yolox_x_mix_mot20_ch', fp16=True, fuse=True, local_rank=0, machine_rank=0, match_thresh=0.7, min_box_area=100, mot20=True, name=None, nms=0.7, num_machines=1, opts=[], seed=None, speed=False, test=False, track_buffer=30, track_thresh=0.6, trt=False, tsize=None)
+2025-02-22 16:46:01.651 | INFO     | __main__:main:164 - Model Summary: Params: 99.00M, Gflops: 987.11
+2025-02-22 16:46:01.651 | INFO     | yolox.data.datasets.mot:__init__:40 - loading annotations into memory...
+2025-02-22 16:46:01.656 | INFO     | yolox.data.datasets.mot:__init__:40 - Done (t=0.01s)
+2025-02-22 16:46:01.657 | INFO     | pycocotools.coco:__init__:86 - creating index...
+2025-02-22 16:46:01.657 | INFO     | pycocotools.coco:__init__:86 - index created!
+2025-02-22 16:46:02.479 | INFO     | __main__:main:186 - loading checkpoint
+2025-02-22 16:46:02.772 | INFO     | __main__:main:191 - loaded checkpoint done.
+2025-02-22 16:46:02.773 | INFO     | __main__:main:197 - 	Fusing model...
+2025-02-22 16:55:46.028 | INFO     | yolox.evaluators.mot_evaluator:write_results:41 - save results to ./YOLOX_outputs/yolox_x_mix_mot20_ch/track_results/MOT20-04.txt
+2025-02-22 17:00:49.443 | INFO     | yolox.evaluators.mot_evaluator:write_results:41 - save results to ./YOLOX_outputs/yolox_x_mix_mot20_ch/track_results/MOT20-06.txt
+2025-02-22 17:03:29.368 | INFO     | yolox.evaluators.mot_evaluator:write_results:41 - save results to ./YOLOX_outputs/yolox_x_mix_mot20_ch/track_results/MOT20-07.txt
+2025-02-22 17:07:13.485 | INFO     | yolox.evaluators.mot_evaluator:write_results:41 - save results to ./YOLOX_outputs/yolox_x_mix_mot20_ch/track_results/MOT20-08.txt
+2025-02-22 17:07:19.735 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:747 - Evaluate in main process...
+2025-02-22 17:07:27.064 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:776 - Loading and preparing results...
+2025-02-22 17:07:32.275 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:776 - DONE (t=5.21s)
+2025-02-22 17:07:32.275 | INFO     | pycocotools.coco:loadRes:366 - creating index...
+2025-02-22 17:07:32.616 | INFO     | pycocotools.coco:loadRes:366 - index created!
+2025-02-22 17:07:32.622 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (2713283), thread 'MainThread' (125085081249280):
+Traceback (most recent call last):
+
+  File "tools/track.py", line 296, in <module>
+    args=(exp, args, num_gpu),
+          │    │     └ 1
+          │    └ Namespace(batch_size=1, ckpt='pretrained/bytetrack_x_mot20.pth.tar', conf=0.01, devices=1, dist_backend='nccl', dist_url=None...
+          └ ╒══════════════════╤══════════════════════════════════════════════════════════════════════════════════════════════╕
+            │ keys   ...
+
+> File "/data/home/sophie/sophie_2024-10-08/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤══════════════════════════════════════════════════════════════════════════════════════════════╕
+    │            │ keys  ...
+    └ <function main at 0x71c3a305e830>
+
+  File "tools/track.py", line 216, in main
+    model, is_distributed, args.fp16, trt_file, decoder, exp.test_size, results_folder
+    │      │               │    │     │         │        │   │          └ './YOLOX_outputs/yolox_x_mix_mot20_ch/track_results'
+    │      │               │    │     │         │        │   └ (896, 1600)
+    │      │               │    │     │         │        └ ╒══════════════════╤══════════════════════════════════════════════════════════════════════════════════════════════╕
+    │      │               │    │     │         │          │ keys   ...
+    │      │               │    │     │         └ None
+    │      │               │    │     └ None
+    │      │               │    └ True
+    │      │               └ Namespace(batch_size=1, ckpt='pretrained/bytetrack_x_mot20.pth.tar', conf=0.01, devices=1, dist_backend='nccl', dist_url=None...
+    │      └ False
+    └ YOLOX(
+        (backbone): YOLOPAFPN(
+          (backbone): CSPDarknet(
+            (stem): Focus(
+              (conv): BaseConv(
+                (conv): ...
+
+  File "/data/home/sophie/sophie_2024-10-08/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/evaluators/mot_evaluator.py", line 331, in evaluate
+    eval_results = self.evaluate_prediction(data_list, statistics)
+                   │    │                   │          └ tensor([ 181.0667, 1028.5120, 4478.0000], device='cuda:0')
+                   │    │                   └ [{'image_id': 1, 'category_id': 1, 'bbox': [0.9416853189468384, 371.25, 78.15987396240234, 198.28125], 'score': 0.92146253585...
+                   │    └ <function MOTEvaluator.evaluate_prediction at 0x71c2f1840320>
+                   └ <yolox.evaluators.mot_evaluator.MOTEvaluator object at 0x71c298e8b3d0>
+
+  File "/data/home/sophie/sophie_2024-10-08/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/evaluators/mot_evaluator.py", line 785, in evaluate_prediction
+    from yolox.layers import COCOeval_opt as COCOeval
+
+  File "/data/home/sophie/sophie_2024-10-08/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/layers/__init__.py", line 5, in <module>
+    from .fast_coco_eval_api import COCOeval_opt
+
+  File "/data/home/sophie/sophie_2024-10-08/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/layers/fast_coco_eval_api.py", line 22, in <module>
+    from yolox2 import _C
+
+ImportError: cannot import name '_C' from 'yolox' (/data/home/sophie/sophie_2024-10-08/uncertain-identity-aware-tracking/Bytetrack/tools/yolox/__init__.py)
+2025-02-22 18:45:21.351 | INFO     | __main__:main:154 - Args: Namespace(batch_size=1, ckpt='pretrained/bytetrack_x_mot20.pth.tar', conf=0.01, devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/mot/yolox_x_mix_mot20_ch.py', experiment_name='yolox_x_mix_mot20_ch', fp16=True, fuse=True, local_rank=0, machine_rank=0, match_thresh=0.7, min_box_area=100, mot20=True, name=None, nms=0.7, num_machines=1, opts=[], seed=None, speed=False, test=False, track_buffer=30, track_thresh=0.6, trt=False, tsize=None)
