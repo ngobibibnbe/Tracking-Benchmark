@@ -4,7 +4,7 @@
 In each of the folder run the jupyter notebook of experimentations to run the tracking for that specific method
 
 # Evaluation
-TODO (add figure of the evaluation, evaluation code, and )
+TODO (add figure of the evaluation, evaluation code (prompttrack))
 # Citation
 If you use this work in your research, please cite: 
 @article{BIBINBE2025101543,
