@@ -6,7 +6,7 @@ In each of the folder run the jupyter notebook of experimentations to run the tr
 # Evaluation
 
 # Citation
-To refer to this work, you can cite: 
+If you use this work in your research, please cite: 
 @article{BIBINBE2025101543,
 title = {Multi-Animal Tracking in Transition: Comparative Insights into Established and Emerging Methods},
 journal = {Smart Agricultural Technology},
